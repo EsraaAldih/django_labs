@@ -1,0 +1,20 @@
+{%extends 'index.html'%}
+{%block title%}
+Create Page
+{%endblock%}
+{%block content%}
+<div class="container">
+    <form method="POST" action="/insertStudent">
+ 
+        <!-- Security token -->
+        {% csrf_token %}
+     
+        <!-- Using the formset -->
+        {{ form.as_p }}
+    
+         
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{%endblock%}

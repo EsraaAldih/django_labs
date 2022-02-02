@@ -1,0 +1,42 @@
+{%extends 'index.html'%}
+{%block title%}
+Create Page
+{%endblock%}
+{%block content%}
+<div class="container">
+  <form action="/create" method="POST">
+    {% csrf_token %}  
+        
+      <div class="form-outline mb-4">
+        <input type="name" id="form3Example3" name="name" class="form-control form-control-lg"
+          placeholder="Enter a valid name" />
+        <label class="form-label" for="form3Example3">Name</label>
+      </div>
+  
+      <div class="form-outline mb-3">
+        <input type="text" id="form3Example4" name="intake" class="form-control form-control-lg"
+          placeholder="Enter text" />
+        <label class="form-label" for="form3Example4">Intake</label>
+      </div>
+  
+      <div class="form-outline mb-3">
+          <input type="text" id="form3Example4" name="track" class="form-control form-control-lg"
+            placeholder="Enter text" />
+          <label class="form-label" for="form3Example4">track</label>
+        </div>
+        <div class="form-outline mb-3">
+          <input type="date" id="form3Example4" name="bdate" class="form-control form-control-lg"
+            placeholder="Enter text" />
+          <label class="form-label" for="form3Example4">date</label>
+        </div>
+  
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <button type="submit" class="btn btn-primary btn-lg"
+          style="padding-left: 2.5rem; padding-right: 2.5rem;">Create</button>
+  
+      </div>
+  
+    </form>
+</div>
+{%endblock%}
+

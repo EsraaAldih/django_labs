@@ -1,0 +1,56 @@
+{%extends 'index.html'%}
+{%block title%}
+Home Page
+{%endblock%}
+{%block content%}
+<div class="container-lg">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8 ">
+                        <h2>Students <b>Details</b></h2>
+                        <div class="m-2">
+                            <a href="/create" class="btn btn-primary">Create</a></p>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-4 p-4">
+
+                        <form action="{% url 'search' %}" method="POST">
+                            {% csrf_token %}
+                          <div class="row justify-content-between">
+                            <input type="text" name="name" class="col-7">
+                            <input type="submit" name="submit" value="Search" class="col-4 btn btn-primary">
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Intake</th>
+                        <th>Track</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for std in stds%}
+                    <tr>
+                        <td>{{std.name}}</td>
+                        <td>{{std.intake}}</td>
+                        <td>{{std.track}}</td>
+                        <td class="row">
+                            <a class="edit col-4 btn" title="Edit" href="{% url 'edit' std.pk %}"><i class="fas fa-edit"></i></a>
+                            <a class="delete col-4 btn" title="Delete" href="{% url 'delete' std.pk %}"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%endblock%}
