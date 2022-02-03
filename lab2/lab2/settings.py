@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Register.apps.RegisterConfig',
     'affairs.apps.AffairsConfig',
+    'quickstart.apps.QuickstartConfig',
+    'rest_framework'
     
 ]
 
